@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin-top: 40px;
+        }
+        #output {
+            background-color: white;
+            border: 1px solid black;
+            padding: 10px 100px; 
+        }
+        .d {
+            width: 500px;
+        }
+        .flex {
+            display: flex;
+            margin-top: 50px;
+            justify-content: space-between;
+        }
+        .flex button {
+            padding: 20px 20px;
+        }
+
+
+
+
+
+
+
+        .dd {
+            border: 1px solid black;
+            width: 300px;
+            height: 450px;
+            margin-top: 120px;
+        }
+        #out {
+            height: 118px;
+            border: 1px solid gray;
+            font-size: 50px;
+            text-align: end;
+            background: #545454;
+            color: white;
+        }
+        .sflex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .bt {
+            width: 75px;
+            height: 55px;
+            font-size: 2vh;
+            color: white;
+            background-color: #323232;
+        }
+        .bt:hover {
+            background-color: gray !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="d">
+        <label style="font-weight: bold;" for="output">კვირის დღე:</label>
+        <output id="output"></output>
+        <div class="flex">
+            <button class="mon" onclick="mon()">1</button>
+            <button class="tue" onclick="tue()">2</button>
+            <button class="wed" onclick="wed()">3</button>
+            <button class="thu" onclick="thu()">4</button>
+            <button class="fro" onclick="fri()">5</button>
+            <button class="sat" onclick="sat()">6</button>
+            <button class="sun" onclick="sun()">7</button>
+    </div>
+
+
+
+    <div class="dd">
+        <div id="out"></div>
+        <div class="sflex">
+            <button class="bt">%</button>
+            <button class="bt">CE</button>
+            <button class="bt">C</button>
+            <button class="bt">←</button>
+            <button class="bt">1/x</button>
+            <button class="bt">x²</button>
+            <button class="bt">√²</button>
+            <button class="bt">/</button>
+            <button class="bt" style="background: black;">7</button>
+            <button class="bt" style="background: black;">8</button>
+            <button class="bt" style="background: black;">9</button>
+            <button class="bt">*</button>
+            <button class="bt" style="background: black;">4</button>
+            <button class="bt" style="background: black;">5</button>
+            <button class="bt" style="background: black;">6</button>
+            <button class="bt">-</button>
+            <button class="bt" style="background: black;">1</button>
+            <button class="bt" style="background: black;">2</button>
+            <button class="bt" style="background: black;">3</button>
+            <button class="bt">+</button>
+            <button class="bt" style="background: black;">+/-</button>
+            <button class="bt" style="background: black;">0</button>
+            <button class="bt" style="background: black;">,</button>
+            <button class="bt" style="background: purple;">=</button>
+        </div>
+    </div>
+    <script>
+        function mon(){
+            let out = document.getElementById("output")
+            out.innerText = "ორშაბათი"
+        }
+        function tue(){
+            let out = document.getElementById("output")
+            out.innerText = "სამშაბათი"
+        }
+        function wed(){
+            let out = document.getElementById("output")
+            out.innerText = "ოთხშაბათი"
+        }
+        function thu(){
+            let out = document.getElementById("output")
+            out.innerText = "ხუთშაბათი"
+        }
+        function fri(){
+            let out = document.getElementById("output")
+            out.innerText = "პარასკევი"
+        }
+        function sat(){
+            let out = document.getElementById("output")
+            out.innerText = "შაბათი"
+        }
+        function sun(){
+            let out = document.getElementById("output")
+            out.innerText = "კვირა"
+        }
+
+
+
+
+
+
+        let output = document.getElementById('output');
+
+        let bt = Array.from(document.getElementsByClassName('bt'));
+
+        bt.map( button => {
+            button.addEventListener('click', (e) => {
+                switch(e.target.innerText){
+                    case 'C':
+                        out.innerText = '';
+                        break;
+                    case 'CE':
+                        out.innerText = '';
+                        break;
+                    case '←':
+                        if(out.innerText){
+                            out.innerText = out.innerText.slice(0, -1);
+                        }                      
+                        break;
+                    case 'x²':
+                        if(out.innerText){
+                            out.innerText = out.innerText*out.innerText;
+                        }
+                        break;
+                    case '√²':
+                        if(out.innerText){
+                                out.innerText = Math.sqrt(out.innerText).toPrecision(10);
+                            }
+                        break;
+                    case '=':
+                        try{
+                            out.innerText=eval(out.innerText);
+                        } catch {
+                            out.innerText = "Error"
+                        }
+                        break;
+                    
+                    default:
+                        out.innerText += e.target.innerText;
+                }
+            });
+        });
+
+
+    </script>
+</body>
+</html>
