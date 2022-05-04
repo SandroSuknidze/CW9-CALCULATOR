@@ -107,6 +107,34 @@
             <button class="bt" style="background: purple;">=</button>
         </div>
     </div>
+
+<br>
+<br>
+<br>
+
+
+
+    <div>
+        <input type="number" id="inp1" placeholder="შეიყვანეთ ინვესტიციის (ჩადებული თანხის) ოდენობა" style="width: 350px;">
+        <input type="number" id="inp2" placeholder="დრო (იზომება წლებში)" style="width: 350px;">
+        <input type="number" id="inp3" placeholder="საპროცენტო განაკვეთი(%)" style="width: 350px;">
+        <button onclick="fun2()">button</button>
+        <div id="garet"></div>
+    
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div>
+        <input type="number" id="inp11" placeholder="შეიყვანეთ ინვესტიციის (ჩადებული თანხის) ოდენობა" style="width: 350px;">
+        <input type="number" id="inp22" placeholder="დრო (იზომება წლებში)" style="width: 350px;">
+        <input type="number" id="inp33" placeholder="დარიცხული პროცენტი(%)" style="width: 350px;">
+        <button onclick="fun3()">button</button>
+        <div id="garet2"></div>
+    
+    </div>
     <script>
         function mon(){
             let out = document.getElementById("output")
@@ -182,6 +210,27 @@
                 }
             });
         });
+
+
+
+        function fun2() {
+            let j = document.getElementById("inp1").value;
+            let k = document.getElementById("inp2").value;
+            let l = document.getElementById("inp3").value;
+            let i = (j*k*l)/100;
+            document.getElementById('garet').innerHTML = "დარიცხული პროცენტი:" + i + "%";
+        }
+
+
+
+        function fun3() {
+            let p = document.getElementById("inp11").value;
+            let t = document.getElementById("inp22").value;
+            let i = document.getElementById("inp33").value;
+            let r = (100*i)/(p*t);
+            document.getElementById('garet2').innerHTML = "წლიური საპროცენტო განაკვეთი:" + r + "%";
+        }
+        
 
 
     </script>
